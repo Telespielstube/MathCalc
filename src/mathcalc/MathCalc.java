@@ -1,21 +1,26 @@
-/*
+/**
  * 
  * This pogramm helps the user to calculate different operations of vectors. 
  * The dimension in which the applications calculates is limited to a range 
- * from 1 to 7. The user can choose from the following options: 
- * addition, subrstraction, scalar product, vector unit, 
- * vector length, vector product and triple product.
- * 
+ * from 1 to 7. The user is presented a main menu where he can choose from the 
+ * following options: 
+ * - addition
+ * - subrstraction
+ * - scalar product
+ * - vector unit 
+ * - vector length
+ * - vector product
+ * - triple product
+ * - exit
+ * after the calculation the user is asked if he wants to choose another option.
+ *
+ *  @author marta
  */
 
 package mathcalc;
 
-/**
- *
- * @author marta
- */
 public class MathCalc {
-
+    
     /**
      * @param args the command line arguments
      */
@@ -31,6 +36,7 @@ public class MathCalc {
         int dimension = menu.inputDimension();
         vector1 = new Vector(dimension);
         vector2 = new Vector(dimension);
+        System.out.printf("\n\nIn the following you need to enter the values of the vectors.\n");
         vector1.inputValue();
         vector2.inputValue();
         
@@ -52,29 +58,39 @@ public class MathCalc {
                     break;
 
                 case 4:
-                    vector1.vectorUnit();
+                    vector1.unitVector(vector2);
                     break;
 
                 case 5:
-                    vector1.vectorLength();
+                    vector1.vectorLength(vector2);
                     break;
 
                 case 6:
-                    vector1.vectorProduct(vector2);
+                    if (dimension == 3) {
+                        vector1.crossProduct(vector2);
+                    } else
+                        System.out.println("\nSorry, but at the moment, cross "
+                                         + "product calculation is only possible for"
+                                         + " dimension 3.\n");                      
                     break;
 
                 case 7:                   
                     vector3 = new Vector(dimension);
-                    vector3.inputValue();
-                    vector3.tripleProduct(vector1, vector2);
+                    if (dimension == 3) {
+                        vector3.inputValue();
+                        vector3.tripleProduct(vector1, vector2);
+                    } else
+                        System.out.println("\nSorry, but at the moment, triple product "
+                                         + "calculation is only possible for"
+                                         + " dimension 3.\n");                   
                     break;
-
+        
                 case 8:
                     System.exit(0);
                 default:
                     System.out.println("Something went wrong!!");
             }
         } while(running);
-       }
+    }
 }
 

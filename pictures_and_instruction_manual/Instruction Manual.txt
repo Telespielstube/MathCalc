@@ -1,0 +1,14 @@
+MathCalc instruction manual
+
+MathCalc is a simple and easy to use application to calculate values of vectors. The application offers seven options:
+-addition
+-substraction
+-scalar product
+-vector unit
+-vector length
+-vector product
+-triple product
+
+On the start screen the user has to choose the dimension of the vectors and then has to input the values for the two vectors. Two vectors is the standard option except for triple product, where you need a third vector unit and length.
+After the input the user is presented with the menu where he can choose the aforementioned items.
+After the calculations the result is printed on screen and the user is taken back to the main menu where he can choose another item or exit the application. 
